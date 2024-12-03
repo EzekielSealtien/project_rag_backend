@@ -1,5 +1,5 @@
 import streamlit as st
 
-
-
-st.write('Yessss')
+a=st.write('Bonjour ca va?')
+if st.button("Apppuie"):
+    print(a)

@@ -62,7 +62,9 @@ class ReportResponse(ReportBase):
     report_id: int
 
 
-        
+class ResponseChatbot(BaseModel):
+    context:str
+    question:str
 
 class UpdateDoctorAbonnement(BaseModel):
     doctor_id: int
@@ -168,6 +170,22 @@ def get_all_reports():
         raise
     finally:
         cursor.close()
+
+def get_all_reports_for_doctor(doctor_id):
+    if not conn:
+        raise Exception("No database connection available.")
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
+    try:
+        # Adjust the query to filter by doctor ID
+        cursor.execute("SELECT * FROM report WHERE doctor_id = %s", (doctor_id,))
+        reports = cursor.fetchall()
+        return reports
+    except Exception as e:
+        print(f"Error fetching reports for doctor {doctor_id}: {e}")
+        raise
+    finally:
+        cursor.close()
+
 
 
 def get_doctor_full_info_by_email(email: str):
