@@ -4,7 +4,6 @@ import backend.Functions_.chatbot as cb
 
 app = FastAPI()
 
-
 @app.get("/")
 def initial():
     return "Hello world:)"
