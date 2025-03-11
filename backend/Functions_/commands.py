@@ -28,7 +28,11 @@ def create_connection():
             user=DB_USER,
             password=DB_PASSWORD,
             host=DB_HOST,
-            port=DB_PORT
+            port=DB_PORT,
+            keepalives=1,                
+            keepalives_idle=300,         
+            keepalives_interval=10,      
+            keepalives_count=5 
             
         )
         print("Database connection established.")

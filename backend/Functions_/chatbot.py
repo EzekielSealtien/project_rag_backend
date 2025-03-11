@@ -17,7 +17,7 @@ load_dotenv()
 
 def get_response_from_model(context,question):
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-    model = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.0,openai_api_key=OPENAI_API_KEY)
+    model = ChatOpenAI(model="gpt-4", temperature=0.0,openai_api_key=OPENAI_API_KEY)
     parser = StrOutputParser()
     template = """
     Answer the question based on the context below. If you can't answer the question, 
