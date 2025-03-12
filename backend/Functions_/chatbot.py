@@ -18,7 +18,7 @@ def get_response_from_model(context,question):
     model = ChatOpenAI(model="gpt-4o", temperature=0.0,openai_api_key=OPENAI_API_KEY)
     parser = StrOutputParser()
     template = """
-    Answer the question based on the context below.
+    Answer the question based on the context below. The expresion /// means the start of a report. The expression \\\ means the end of a report.
     Context: {context}
     Question: {question}
     """
