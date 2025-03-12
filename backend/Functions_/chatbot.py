@@ -18,7 +18,7 @@ def get_response_from_model(context,question):
     model = ChatOpenAI(model="gpt-4o", temperature=0.0,openai_api_key=OPENAI_API_KEY)
     parser = StrOutputParser()
     template = """
-    Answer the question based on the context below.use your reasoning skills to answer the questions. If you can't answer the question, 
+    Answer the question based on the context below. If you can't answer the question, 
     reply "My apologies, but I have no clue".env.
     Context: {context}
     Question: {question}
