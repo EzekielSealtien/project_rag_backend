@@ -18,7 +18,7 @@ def get_response_from_model(context,question):
     model = ChatOpenAI(model="gpt-4o", temperature=0.0,openai_api_key=OPENAI_API_KEY)
     parser = StrOutputParser()
     template = """
-    Answer the question based on the context below. The expresion << means the start of a report. The expression >> means the end of a report.
+    Answer the question based on the context below. The expresion << means the start of a report. The expression >> means the end of a report.Use your reasoning skills to answer the question.
     If you can't answer the question, reply "My apologies, but I have no clue".
     Context: {context}
     Question: {question}
