@@ -34,7 +34,7 @@ def get_response_from_model(context,question):
     text_documents = loader.load()
     
     #Split text into chunks
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=70)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=120, chunk_overlap=15)
     documents = text_splitter.split_documents(text_documents)
     
     # Generate the embeddings for an arbitrary query
