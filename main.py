@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 def initial():
-    return "Hello world:)"
+    return "Thank you Jesus:)"
 
 
 @app.post("/doctor/create_doctor")
