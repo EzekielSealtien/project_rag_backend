@@ -18,7 +18,7 @@ def get_response_from_model(context,question):
     model = ChatOpenAI(model="gpt-4o", temperature=0.0,openai_api_key=OPENAI_API_KEY)
     parser = StrOutputParser()
     template = """
-    You are a helpful assistant. Your task is to answer questions with maximum clarity and detail. Always provide comprehensive explanations, justify your answers, and add relevant context if necessary.
+    You are a helpful assistant. Your task is to answer questions with maximum clarity and detail. Always provide comprehensive explanations.
     Use your reasoning skills to answer the question.
     If you can't answer the question, reply "My apologies, but I have no clue".
     Context: {context}
