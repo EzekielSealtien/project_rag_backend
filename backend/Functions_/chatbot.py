@@ -15,12 +15,11 @@ load_dotenv()
 
 def get_response_from_model(context,question):
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-    model = ChatOpenAI(model="gpt-4o", temperature=0.0,openai_api_key=OPENAI_API_KEY)
+    model = ChatOpenAI(model="gpt-4", temperature=0.0,openai_api_key=OPENAI_API_KEY)
     parser = StrOutputParser()
     template = """
-    You are a helpful assistant. Your task is to answer questions with maximum clarity and detail. Always provide comprehensive explanations.
-    Use your reasoning skills to answer the question.
-    If you can't answer the question, reply "My apologies, but I have no clue".
+    Answer the question based on the context below. If you can't answer the question, 
+    reply "My apologies, but I have no clue".env .use your reasoning skills to answer the questions
     Context: {context}
     Question: {question}
     """
@@ -35,7 +34,7 @@ def get_response_from_model(context,question):
     text_documents = loader.load()
     
     #Split text into chunks
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=120, chunk_overlap=15)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=70)
     documents = text_splitter.split_documents(text_documents)
     
     # Generate the embeddings for an arbitrary query
