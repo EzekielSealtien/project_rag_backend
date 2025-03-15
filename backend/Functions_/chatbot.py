@@ -19,7 +19,8 @@ def get_response_from_model(context,question):
     parser = StrOutputParser()
     template = """
     Answer the question based on the context below. If you can't answer the question, 
-    reply "My apologies, but I have no clue".env .use your reasoning skills to answer the questions
+    reply "My apologies, but I have no clue".env .use your reasoning skills to answer the questions about the medication a doctor might
+    give to a patient based on his/her symptoms.
     Context: {context}
     Question: {question}
     """
