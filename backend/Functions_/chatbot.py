@@ -29,15 +29,14 @@ def get_response_from_model(context,question):
     
     with open("context.txt","w") as file:
         file.write(context)
-    
+
     #Load the transcript in memory    
     loader = TextLoader("context.txt")
     text_documents = loader.load()
-    
+
     #Split text into chunks
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=70)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=200)
     documents = text_splitter.split_documents(text_documents)
-    
     # Generate the embeddings for an arbitrary query
     embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
     
@@ -51,10 +50,12 @@ def get_response_from_model(context,question):
     )
     
     chain = (
-    {"context": pinecone.as_retriever(), "question": RunnablePassthrough()}
+    {"context": pinecone.as_retriever(search_kwargs={"k": 3}), "question": RunnablePassthrough()}
     | prompt
     | model
     | parser
     )
     response=chain.invoke(question)
     return response
+
+
