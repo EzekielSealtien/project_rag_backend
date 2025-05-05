@@ -19,7 +19,7 @@ def get_response_from_model(context,question):
     parser = StrOutputParser()
     template = """
     Answer the question based on the context below. If you can't answer the question, 
-    reply "My apologies, but I have no clue.".
+    reply "Téléversez d'abord votre document,Ensuite je pourrais vous répondre.".
     Context: {context}
     Question: {question}
     """
