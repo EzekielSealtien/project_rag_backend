@@ -19,7 +19,7 @@ def get_response_from_model(context,question):
     parser = StrOutputParser()
     template = """
     Answer the question based on the context below. If you can't answer the question, 
-    reply "Veuillez d'abord téléverser votre document, je pourrai ensuite répondre à vos questions.".
+    reply "Désolé , je n'ai aucune idée." Utilise ta faculté de raisonnement pour repondre à des questions externes qu'on te pose concernant les rapports medicaux des patients.
     Context: {context}
     Question: {question}
     """
