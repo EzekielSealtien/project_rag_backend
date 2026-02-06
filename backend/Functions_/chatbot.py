@@ -29,7 +29,6 @@ def get_response_from_model(context,question):
     with open("context.txt","w") as file:
         file.write(context)
     
-    #Load the transcript in memory    
     loader = TextLoader("context.txt")
     text_documents = loader.load()
     
